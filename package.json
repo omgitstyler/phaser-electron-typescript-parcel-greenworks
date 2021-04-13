@@ -1,7 +1,7 @@
 {
-  "name": "phaser-electron-typescript-parcel",
-  "version": "1.0.0",
-  "description": "phaser electron typescript parcel template",
+  "name": "phaser-electron-typescript-parcel-greenworks",
+  "version": "1.0.1",
+  "description": "phaser electron typescript parcel greenworks template",
   "main": "build/main.js",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
@@ -12,31 +12,36 @@
     "watch": "rimraf build && parcel watch src/main.ts src/index.html --public-url ./ -d build --out-file=main --target=electron",
     "app": "cross-env ELECTRON_DEBUG=true electron build/main.js",
     "debug": "cross-env ELECTRON_DEBUG=vscode electron --remote-debugging-port=9223 build/main.js",
-    "dist": "yarn build && electron-builder",
-    "parcel": "parcel src/index.html -p 8000"
+    "dist": "yarn build && electron-builder"
   },
-  "homepage": "https://github.com/distantcam/phaser-electron-typescript-parcel",
+  "homepage": "https://github.com/omgitstyler/phaser-electron-typescript-parcel-greenworks",
   "bugs": {
-    "url": "https://github.com/distantcam/phaser-electron-typescript-parcel/issues"
+    "url": "https://github.com/omgitstyler/phaser-electron-typescript-parcel-greenworks/issues"
   },
   "build": {
     "appId": "parcel.electron",
-    "mac": {
-      "category": "your.app.category.type"
+    "npmRebuild": false,
+    "win": {
+      "target": "nsis"
     },
     "files": [
       "build/*",
       "!node_modules/greenworks/deps/**/*"
+    ],
+    "extraFiles": [
+      "steam_appid.txt"
     ]
   },
   "keywords": [
     "phaser",
-    "electron"
+    "electron",
+    "greenworks"
   ],
-  "author": "distantcam",
+  "author": "omg_its_tyler",
   "license": "MIT",
   "dependencies": {
-    "phaser": "^3.24.1"
+    "phaser": "^3.24.1",
+    "greenworks": "^0.14.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
